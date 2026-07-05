@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Human Development Index</title>
+    <style>
+        * { box-sizing: border-box; }
+        body {
+            margin: 0;
+            font-family: 'Georgia', serif;
+            color: white;
+            min-height: 100vh;
+            background:
+                radial-gradient(circle at 20% 20%, rgba(79,172,254,0.25), transparent 40%),
+                radial-gradient(circle at 80% 60%, rgba(168,85,247,0.20), transparent 40%),
+                #0a1128;
+        }
+        .topbar {
+            display: flex;
+            justify-content: flex-end;
+            padding: 20px 40px;
+        }
+        .topbar a button {
+            padding: 10px 24px;
+            font-size: 15px;
+            border: none;
+            border-radius: 20px;
+            background: linear-gradient(to right, #4facfe, #a855f7);
+            color: white;
+            cursor: pointer;
+        }
+        h1 {
+            text-align: center;
+            color: #ff3b3b;
+            font-size: 42px;
+            margin: 0 0 40px;
+            text-shadow: 0 0 12px rgba(255,59,59,0.5);
+        }
+        .content {
+            max-width: 780px;
+            margin: 0 auto;
+            padding: 0 30px 60px;
+            line-height: 1.7;
+            font-size: 17px;
+            color: #dbe4ff;
+        }
+        .content p { margin-bottom: 20px; }
+    </style>
+</head>
+<body>
+    <div class="topbar">
+        <a href="/predict">
+            <button>Predict</button>
+        </a>
+    </div>
+
+    <h1>Human Development Index</h1>
+
+    <div class="content">
+        <p>
+            The Human Development Index (HDI) is a summary measure of average
+            achievement in key dimensions of human development: a long and healthy
+            life, being knowledgeable, and having a decent standard of living.
+        </p>
+        <p>
+            It is calculated using indicators such as life expectancy, mean years
+            of schooling, expected years of schooling, and Gross National Income
+            (GNI) per capita &mdash; combining these into a single score between
+            0 and 1.
+        </p>
+        <p>
+            This application uses a trained Machine Learning model
+            (Linear Regression) to predict the HDI score of a country based on
+            its key development indicators. Click <strong>Predict</strong> above
+            to try it yourself.
+        </p>
+    </div>
+</body>
+</html>

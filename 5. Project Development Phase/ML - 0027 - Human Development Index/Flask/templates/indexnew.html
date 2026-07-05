@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Human Development Index - Predict</title>
+    <style>
+        * { box-sizing: border-box; }
+        body {
+            margin: 0;
+            font-family: 'Georgia', serif;
+            color: white;
+            min-height: 100vh;
+            background:
+                radial-gradient(circle at 15% 25%, rgba(79,172,254,0.25), transparent 40%),
+                radial-gradient(circle at 85% 70%, rgba(168,85,247,0.20), transparent 40%),
+                #0a1128;
+        }
+        h1 {
+            text-align: center;
+            color: #ff3b3b;
+            font-size: 38px;
+            padding-top: 30px;
+            margin: 0 0 20px;
+            text-shadow: 0 0 12px rgba(255,59,59,0.5);
+        }
+        .form-card {
+            background: rgba(10, 20, 40, 0.75);
+            border: 2px solid #4facfe;
+            border-radius: 20px;
+            max-width: 480px;
+            margin: 0 auto 50px;
+            padding: 32px;
+            box-shadow: 0 0 30px rgba(79,172,254,0.15);
+        }
+        select, input {
+            width: 100%;
+            padding: 12px;
+            margin: 10px 0;
+            border-radius: 20px;
+            border: 1px solid #4facfe;
+            background: rgba(255,255,255,0.05);
+            color: white;
+            font-size: 15px;
+            text-align: center;
+            font-family: 'Georgia', serif;   /* match the page's font */
+        }
+        select option { color: black; }
+        ::placeholder {
+            color: #b7c6ff;
+            opacity: 0.8;
+            font-family: 'Georgia', serif;   /* match the page's font */
+        }
+        button {
+            width: 100%;
+            padding: 13px;
+            margin-top: 18px;
+            border: none;
+            border-radius: 20px;
+            background: linear-gradient(to right, #4facfe, #a855f7);
+            color: white;
+            font-size: 18px;
+            cursor: pointer;
+        }
+        .result-box {
+            margin: 22px auto 0;
+            border: 1px solid #a855f7;
+            border-radius: 10px;
+            padding: 14px;
+            color: #f5d90a;
+            font-weight: bold;
+            font-size: 18px;
+            text-align: center;
+        }
+        .hint {
+            font-size: 12px;
+            color: #9fb4e0;
+            text-align: center;
+            margin-top: -4px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Human Development Index</h1>
+
+    <div class="form-card">
+        <form action="/predict" method="POST">
+            <select name="country" required>
+                <option value="" disabled selected>Select the name of the Country</option>
+                {% for c in countries %}
+                <option value="{{ c }}">{{ c }}</option>
+                {% endfor %}
+            </select>
+
+            <input type="number" step="0.01" name="life_expectancy"
+                   placeholder="Enter life expectancy rate (range 40-89)" min="40" max="89" required>
+
+            <input type="number" step="0.01" name="mean_schooling"
+                   placeholder="Enter Mean years of schooling (range 1-15)" min="1" max="15" required>
+
+            <input type="number" step="0.01" name="expected_schooling"
+                   placeholder="Enter Expected years of schooling (range 1-21)" min="1" max="21" required>
+
+            <input type="number" step="1" name="gni"
+                   placeholder="Enter GNI per capita (range 500-136000)" min="500" max="136000" required>
+
+            <button type="submit">Predict</button>
+        </form>
+
+        {% if prediction_text %}
+        <div class="result-box">{{ prediction_text }}</div>
+        {% endif %}
+    </div>
+</body>
+</html>
