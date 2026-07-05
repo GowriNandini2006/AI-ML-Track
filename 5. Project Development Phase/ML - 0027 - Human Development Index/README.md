@@ -35,7 +35,7 @@ The prediction model is trained using an HDI dataset and integrated into a Flask
 
 ## Project Structure
 
-
+```text
 Human Development Index/
 
 ├── Dataset/
@@ -54,7 +54,7 @@ Human Development Index/
 │   └── HumDevIndex.ipynb
 │
 └── README.md
-
+```
 
 ---
 
