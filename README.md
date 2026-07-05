@@ -117,8 +117,8 @@ http://127.0.0.1:5000
 
 ## Team
 
-Mucharla Sweety
-Gowri Nandini Puttha
-Meruva Ruchitha
-Paturu Malleswasri
-Yashashvi Nagisettygari
+- Mucharla Sweety
+- Gowri Nandini Puttha
+- Meruva Ruchitha
+- Paturu Malleswasri
+- Yashashvi Nagisettygari
